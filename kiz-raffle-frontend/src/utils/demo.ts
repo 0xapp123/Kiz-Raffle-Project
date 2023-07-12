@@ -1,17 +1,3 @@
-export const TOKENS = [
-    {
-        tokenName: "Solana",
-        tokenSymbol: "SOL",
-        tokenAddress: "Gj8q7FboqyEGkJy7oYDFWjrozgsGegjkHnbLtZr9LvUW",
-        decimal: 9
-    },
-    {
-        tokenName: "SolAPE",
-        tokenSymbol: "SOLAPE",
-        tokenAddress: "GHvFFSZ9BctWsEc5nujR1MTmmJWY7tgQz2AXE6WVFtGN",
-        decimal: 9
-    },
-]
 
 export const RAFFLES = [
     {

@@ -17,16 +17,16 @@ export default function Header() {
           </Link>
           <nav className="hidden lg:block">
             <ul className="flex gap-9">
-              <li className="font-bold uppercase text-md">
+              <li className="font-bold uppercase text-md hover:text-[#9C27B0]">
                 <Link href="/">Home</Link>
               </li>
-              <li className="font-bold uppercase text-md">
+              <li className="font-bold uppercase text-md hover:text-[#9C27B0]">
                 <Link href="/create">Create</Link>
               </li>
-              <li className="font-bold uppercase text-md">
+              <li className="font-bold uppercase text-md hover:text-[#9C27B0]">
                 <Link href="#">Link</Link>
               </li>
-              <li className="font-bold uppercase text-md">
+              <li className="font-bold uppercase text-md hover:text-[#9C27B0]">
                 <Link href="#">Link</Link>
               </li>
             </ul>
