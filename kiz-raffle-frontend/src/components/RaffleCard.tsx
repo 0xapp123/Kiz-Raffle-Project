@@ -7,17 +7,18 @@ import Link from "next/link";
 import Countdown from "./Countdown";
 import { useWindowSize } from "react-use";
 import { useRouter } from "next/router";
+import moment from "moment";
 
 interface Props {
   raffle: RaffleItem;
   className: string;
   isNew?: boolean;
   tab?: string;
+  getAllData?: any;
 }
-const RaffleCard: FC<Props> = ({ raffle, isNew, tab }) => {
+const RaffleCard: FC<Props> = ({ raffle, isNew, tab, getAllData }) => {
   const {
     image,
-    collection,
     name,
     price,
     token,
@@ -26,7 +27,6 @@ const RaffleCard: FC<Props> = ({ raffle, isNew, tab }) => {
     endTimeStamp,
     totalTickets,
     purchasedTickets,
-    verified,
   } = raffle;
 
   const { width } = useWindowSize();
@@ -62,24 +62,31 @@ const RaffleCard: FC<Props> = ({ raffle, isNew, tab }) => {
               height: cardWidth,
               filter: `grayscale(${isEnd && !isNew ? 1 : 0})`,
             }}
-            alt="name"
+            alt={name}
           />
-          {!isNew && !isEnd && (
+          {!isEnd ? (
             <Countdown
               endTimestamp={endTimeStamp}
-              className="absolute right-4 top-4 flex border border-[#000] bg-[#000000aa] text-lg gap-1 px-3 text-white"
+              className="absolute right-4 top-4 flex border border-[#000] bg-[#000000aa] text-lg gap-1 px-3 text-green-400 h-10 items-center"
+              completed={getAllData}
             />
+          ) : (
+            !isNew && (
+              <div className="absolute right-4 top-4 flex border border-[#000] bg-[#000000aa] text-lg gap-1 px-3 text-red-400 h-10 items-center">
+                Ended in:&nbsp;{moment(endTimeStamp).fromNow()}
+              </div>
+            )
           )}
         </div>
       </Link>
       <div className="px-5 py-4">
         <div className="">
-          <p className="text-[#eee] text-md font-500 flex gap-2 items-center">
+          {/* <p className="text-[#eee] text-md font-500 flex gap-2 items-center">
             <span title={verified ? "Verified" : "Unverified"}>
               <VerifiedIcon color={verified ? "#86098d" : "#9E9E9E"} />
             </span>
             {collection}
-          </p>
+          </p> */}
           <p className="text-[#eee] text-lg font-500 flex gap-2 items-center">
             {name}
           </p>
